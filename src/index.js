@@ -5,11 +5,20 @@ import './index.css';
 class Card extends React.Component {
     render() {
       return (
-        <button className="card" >
+        <div className="card" onClick={this.myfunction}>
+          <img src="noperson3.png" alt="my image"/>
+          <div className="container">
+            <h4><b>Damian Lillard</b></h4>
+            <p>Portland Trail Blazers</p>
+          </div>
           {/* TODO */}
-        </button>
+        </div>
       );
     }
+    myfunction() {
+      alert("Clicked");
+      console.log("CLICKED");
+  }
   }
   
   class Board extends React.Component {
@@ -21,12 +30,9 @@ class Card extends React.Component {
         let table = []
     
         // Outer loop to create parent
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 18; i++) {
           let children = []
-          //Inner loop to create children
-          for (let j = 0; j < 6; j++) {
             children.push(this.renderCard(i))
-          }
           //Create the parent and add the children
           table.push(<div className="board-row">{children}</div>)
         }
